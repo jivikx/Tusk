@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Chatbot</title>
+    <style>
+        body { font-family: Arial; margin: 0; background: #f4f4f4; }
+        .nav { background: #333; padding: 10px; }
+        .nav a { color: white; margin: 10px; text-decoration: none; }
+        .container { padding: 20px; }
+        .chat-box { background: white; padding: 15px; border-radius: 10px; height: 400px; overflow-y: auto; }
+        input, button { padding: 10px; margin-top: 10px; width: 80%; }
+        button { width: 18%; }
+    </style>
+</head>
+<body>
+
+<div class="nav">
+    <a href="/">Home</a>
+    <a href="/chatbot">Chatbot</a>
+    <a href="/summarizer">Summarizer</a>
+    <a href="/leaderboard">Leaderboard</a>
+    <a href="/tracker">Study Tracker</a>
+</div>
+
+<div class="container">
+    <h2>AI Chatbot</h2>
+
+    <div class="chat-box" id="chat-box">
+        <p><b>Bot:</b> Hello! Ask me anything.</p>
+    </div>
+
+    <input type="text" id="userInput" placeholder="Type your message...">
+    <button onclick="sendMessage()">Send</button>
+</div>
+
+<script>
+function sendMessage() {
+    let input = document.getElementById("userInput").value;
+    let box = document.getElementById("chat-box");
+
+    box.innerHTML += "<p><b>You:</b> " + input + "</p>";
+    box.innerHTML += "<p><b>Bot:</b> (AI response will go here)</p>";
+
+    document.getElementById("userInput").value = "";
+}
+</script>
+
+</body>
+</html>

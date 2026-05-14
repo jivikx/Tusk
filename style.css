@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+.navbar{
+    background:#1e293b;
+    padding:15px;
+    border-radius:15px;
+    margin-bottom:30px;
+}
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:bold;
+}
+.nav-links a:hover{
+    color:#38bdf8;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 2rem;
+}
+.logo-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.navbar a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:bold;
+}
+.navbar a:hover{
+    color:#38bdf8;
+}
+body{
+    background:#0B1026;
+    color:white;
+}
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    background:#101935;
+    position:sticky;
+    top:0;
+}
+.navbar h1{
+    color:#FFD166;
+}
+.nav-links a{
+    color:white;
+    margin-left:20px;
+    text-decoration:none;
+    font-size: large;
+}
+.hero{
+    min-height:80vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
+    background:linear-gradient(135deg,#0B1026,#1E3A8A);
+}
+.hero h2{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+.hero p{
+    max-width:700px;
+    line-height:1.7;
+    margin:auto;
+}
+button{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    border-radius:12px;
+    background:#FFD166;
+    color:#0B1026;
+    font-weight:600;
+    cursor:pointer;
+}
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:60px;
+}
+.card,.box,.dashboard-card{
+    background:#16213E;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 0 15px rgba(0,0,0,0.3);
+}
+.ai-section{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    padding:60px;
+}
+textarea,input{
+    width:100%;
+    margin-top:15px;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+}
+.leaderboard{
+    padding:60px;
+}
+.leaderboard ul{
+    list-style:none;
+    margin-top:20px;
+}
+.leaderboard li{
+    background:#16213E;
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:10px;
+}
+footer{
+    text-align:center;
+    padding:30px;
+    background:#101935;
+}
+.parent-dashboard{
+    padding:60px;
+}
