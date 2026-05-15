@@ -6,22 +6,23 @@
     <title>Tusk - Smart Learning Platform</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav class="navbar">
-    <div class="logo-container">
-        <img src="logo.jpeg" alt="Logo" class="logo-img">
-        <h1>Tusk</h1>
-    </div>
+        <div class="logo-container">
+            <img src="logo.jpeg" alt="Logo" class="logo-img">
+            <h1>Tusk</h1>
+        </div>
 
-    <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="#features">Study Tracker</a>
-        <a href="#ai">Chatbot</a>
-        <a href="#ai">Summarizer</a>
-        <a href="#leaderboard">Leaderboard</a>
-        <a href="parent.html">Parental Controls</a>
-    </div>
-</nav>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#features">Study Tracker</a>
+            <a href="#ai">Chatbot</a>
+            <a href="#ai">Summarizer</a>
+            <a href="#leaderboard">Leaderboard</a>
+            <a href="parent.html">Parental Controls</a>
+        </div>
+    </nav>
 
     <header class="hero">
         <div>
@@ -30,7 +31,9 @@
                 Tusk helps students focus, summarize notes, track productivity,
                 and compete with friends using gamified learning.
             </p>
-            <button>Start Learning</button>
+            <button onclick="alert('Demo mode: connect backend to activate AI features')">
+                Start Learning
+            </button>
         </div>
     </header>
 
@@ -53,14 +56,14 @@
 
     <section id="ai" class="ai-section">
         <div class="box">
-            <h2>AI Notes Summarizer</h2>
+            <h2>AI Notes Summarizer (Demo)</h2>
             <textarea id="notes" placeholder="Paste your notes here..."></textarea>
             <button onclick="summarizeNotes()">Summarize</button>
             <div id="summary"></div>
         </div>
 
         <div class="box">
-            <h2>AI Tutor Chatbot</h2>
+            <h2>AI Tutor Chatbot (Demo)</h2>
             <input type="text" id="message" placeholder="Ask anything...">
             <button onclick="sendMessage()">Send</button>
             <div id="reply"></div>
@@ -77,37 +80,40 @@
     </footer>
 
 <script>
-async function summarizeNotes() {
+function summarizeNotes() {
     const notes = document.getElementById("notes").value;
 
-    const response = await fetch("/summarize", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ notes })
-    });
+    if (!notes.trim()) {
+        document.getElementById("summary").innerText = "Please enter notes first.";
+        return;
+    }
+    const summary = "• " + notes.split(" ").slice(0, 15).join(" ") + "...";
 
-    const data = await response.json();
-    document.getElementById("summary").innerText = data.summary;
+    document.getElementById("summary").innerText =
+        "Summary:\n" + summary;
 }
 
-async function sendMessage() {
-    const message = document.getElementById("message").value;
+function sendMessage() {
+    const message = document.getElementById("message").value.toLowerCase();
 
-    const response = await fetch("/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message })
-    });
+    let reply = "I am a demo bot. Connect backend AI to enable full responses.";
 
-    const data = await response.json();
-    document.getElementById("reply").innerText = data.reply;
+    if (message.includes("hello")) reply = "Hi! How can I help you study today?";
+    else if (message.includes("math")) reply = "Try breaking the problem into smaller steps.";
+    else if (message.includes("biology")) reply = "Focus on diagrams and processes.";
+
+    document.getElementById("reply").innerText = reply;
 }
 
-async function loadLeaderboard() {
-    const response = await fetch("/leaderboard");
-    const users = await response.json();
+function loadLeaderboard() {
+    const users = [
+        { name: "Aarav", points: 120 },
+        { name: "Zara", points: 110 },
+        { name: "Rohan", points: 95 }
+    ];
 
     const list = document.getElementById("leaderboard-list");
+    list.innerHTML = "";
 
     users.forEach(user => {
         const li = document.createElement("li");
